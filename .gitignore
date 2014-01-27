@@ -1,0 +1,11 @@
+*~
+*#
+.#*
+*.pyc
+*.lock
+*.swp
+.rbenv-version
+.tmp/
+.vagrant*
+.DS_Store
+
