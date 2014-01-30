@@ -1,0 +1,6 @@
+#
+# This file is managed by puppet class <%= @name %>
+#
+
+<% @cgroup_options.sort.each do |option,value| %><%= option %> = <%= value %>
+<% end %>

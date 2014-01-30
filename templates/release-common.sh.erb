@@ -1,0 +1,12 @@
+#!/bin/bash
+# From https://computing.llnl.gov/linux/slurm/cgroup.conf.html
+base_path=<%= @directory %>
+progname=$(basename $0)
+subsystem=${progname##*_}
+
+rmcg=${base_path}/${subsystem}$@
+uidcg=${rmcg%/job*}
+if [[ -d ${base_path}/${subsystem} ]]
+then
+  flock -x ${uidcg} -c "rmdir ${rmcg}"
+fi

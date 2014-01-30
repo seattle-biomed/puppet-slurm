@@ -2,9 +2,9 @@
 #
 # Full description of class slurm is in the README.
 #
-class slurm::package (
-  $ensure   = $slurm::package_ensure,
-  $package  = 'slurm-llnl'
+class slurm::dbd::package (
+  $ensure   = $slurm::dbd::package_ensure,
+  $package  = 'slurm-llnl-slurmdbd'
 ) {
 
   package { $package:
