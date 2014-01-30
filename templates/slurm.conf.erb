@@ -1,0 +1,16 @@
+#
+# This file is managed by puppet class <%= @name %>
+#
+
+# Options
+<% @options.sort.each do |option,value| %><%= option %> = <%= value %>
+<% end %>
+
+# Nodes
+<% @nodes.sort.each do |value| %><%= value %>
+<% end %>
+
+# Partitions
+<% @partitions.sort.each do |value| %><%= value %>
+<% end %>
+

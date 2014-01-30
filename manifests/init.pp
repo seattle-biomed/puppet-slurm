@@ -3,15 +3,20 @@
 # Full description of class slurm is in the README.
 #
 class slurm (
-  $config_ensure  = 'present',
-  $config_options = hash([]),
-  $package_ensure = 'installed',
-  $service_ensure = 'running',
-  $service_enable = true,
+  $config_directory   = '/etc/slurm-llnl',
+  $config_ensure      = 'present',
+  $config_options     = hash([]),
+  $config_nodes       = [],
+  $config_partitions  = [],
+  $cgroup_options     = hash([]),
+  $dbd_config_options = hash([]),
+  $package_ensure     = 'installed',
+  $service_ensure     = 'running',
+  $service_enable     = true,
 ) {
-  anchor { "${module_name}::begin": } ->
-  class {"${module_name}::package": } ->
-  class {"${module_name}::config": } ~>
-  class {"${module_name}::service": } ~>
-  anchor { "${module_name}::end": }
+  anchor { 'slurm::begin': } ->
+  class  { 'slurm::package': } ->
+  class  { 'slurm::config': } ~>
+  class  { 'slurm::service': } ->
+  anchor { 'slurm::end': }
 }
