@@ -6,7 +6,7 @@ class slurm::dbd::config (
   $config_file  = 'slurmdbd.conf',
   $ensure       = $slurm::dbd::config_ensure,
   $directory    = $slurm::config_directory,
-  $options      = $slurm::dbd::dbd_config_options,
+  $options      = $slurm::dbd::config_options,
 ) {
 
   file { "${directory}/${config_file}":
