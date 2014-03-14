@@ -5,11 +5,12 @@
 class slurm::service (
   $ensure   = $slurm::service_ensure,
   $enable   = $slurm::service_enable,
-  $service  = 'slurm-llnl'
+  $service  = $slurm::service_name,
 ) {
 
   service { $service:
     ensure => $ensure,
     enable => $enable,
   }
+
 }

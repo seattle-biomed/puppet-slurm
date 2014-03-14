@@ -4,7 +4,7 @@
 #
 class slurm::package (
   $ensure   = $slurm::package_ensure,
-  $package  = 'slurm-llnl'
+  $package  = $slurm::package_name,
 ) {
 
   package { $package:
