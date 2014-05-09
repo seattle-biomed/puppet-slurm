@@ -20,7 +20,7 @@ class slurm::config (
 
   file { "${directory}/${config_file}":
     ensure  => $ensure,
-    mode    => '0444',
+    mode    => '0440',
     content => template('slurm/slurm.conf.erb')
   }
 
