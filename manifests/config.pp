@@ -9,6 +9,7 @@ class slurm::config (
   $nodes            = $slurm::config_nodes,
   $partitions       = $slurm::config_partitions,
   $cgroup_options   = $slurm::cgroup_options,
+  $service_account  = $slurm::service_account,
   $config_file      = 'slurm.conf',
   $cgroup_file      = 'cgroup.conf',
 ) {
@@ -21,12 +22,14 @@ class slurm::config (
   file { "${directory}/${config_file}":
     ensure  => $ensure,
     mode    => '0440',
+    owner   => $service_account,
     content => template('slurm/slurm.conf.erb')
   }
 
   file { "${directory}/${cgroup_file}":
     ensure  => $ensure,
     mode    => '0444',
+    owner   => $service_account,
     content => template('slurm/cgroup.conf.erb')
   }
 

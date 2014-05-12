@@ -18,6 +18,7 @@ class slurm (
   $service_name       = 'slurm-llnl',
   $service_ensure     = 'running',
   $service_enable     = true,
+  $service_account    = 'slurm',
 ) {
   anchor { 'slurm::begin': } ->
   class  { 'slurm::package': } ->
