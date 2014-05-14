@@ -21,7 +21,7 @@ class slurm::config (
 
   file { "${directory}/${config_file}":
     ensure  => $ensure,
-    mode    => '0440',
+    mode    => '0444',
     owner   => $service_account,
     content => template('slurm/slurm.conf.erb')
   }
