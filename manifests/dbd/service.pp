@@ -5,8 +5,7 @@
 class slurm::dbd::service (
   $ensure       = $slurm::dbd::service_ensure,
   $enable       = $slurm::dbd::service_enable,
-  $service      = 'slurmdbd',
-  $service_cmd  = 'slurm-llnl-slurmdbd',
+  $service      = 'slurm-llnl-slurmdbd',
 ) {
 
   service { $service:
@@ -14,9 +13,9 @@ class slurm::dbd::service (
     enable      => $enable,
     hasstatus   => true,
     hasrestart  => true,
-    status      => "/usr/bin/service ${service_cmd} status",
-    start       => "/usr/bin/service ${service_cmd} start",
-    stop        => "/usr/bin/service ${service_cmd} stop",
-    restart     => "/usr/bin/service ${service_cmd} restart",
+    status      => "/usr/bin/service ${service} status",
+    start       => "/usr/bin/service ${service} start",
+    stop        => "/usr/bin/service ${service} stop",
+    restart     => "/usr/bin/service ${service} restart",
   }
 }
